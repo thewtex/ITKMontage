@@ -160,7 +160,7 @@ public:
    * To be called for each tile position in the mosaic
    * before the call to Update(). */
   void
-  SetTileTransform(TileIndexType position, TransformConstPointer transform);
+  SetTileTransform(TileIndexType position, const TransformType *  transform);
 
   /** Get/Set background value (used if CropToFill is false).
    * Default PixelType's value (usually zero) if not set. */
@@ -234,7 +234,7 @@ private:
   PixelType m_Background = PixelType(); // default background value (not covered by any input tile)
 
   std::vector<TransformConstPointer> m_Transforms;
-  std::vector<ImagePointer>         m_Tiles; // metadata/image storage (if filenames are given instead of actual images)
+  std::vector<ImagePointer>          m_Tiles; // metadata/image storage (if filenames are given instead of actual images)
   typename Superclass::ConstPointer m_Montage;
   std::vector<RegionType>           m_InputMappings;           // where do input tile regions map into the output
   std::vector<ContinuousIndexType>  m_InputsContinuousIndices; // where do input tile region indices map into the output
